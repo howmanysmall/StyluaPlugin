@@ -1,0 +1,31 @@
+local None = require(script.Parent.Parent.None)
+local copyDeep = require(script.Parent.copyDeep)
+
+local function joinDeep(...)
+	local new = {}
+	local index = 1
+
+	for listIndex = 1, select("#", ...) do
+		local list = select(listIndex, ...)
+
+		if list then
+			for _, value in ipairs(list) do
+				if type(value) == "table" then
+					if new[index] == nil or type(new[index]) ~= "table" then
+						new[index] = copyDeep(value)
+					else
+						new[index] = joinDeep(new[index], value)
+					end
+				elseif value ~= None then
+					new[index] = value
+				end
+
+				index += 1
+			end
+		end
+	end
+
+	return new
+end
+
+return joinDeep

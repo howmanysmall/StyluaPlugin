@@ -1,0 +1,1 @@
+deno compile --allow-net --allow-run --allow-write --allow-read --allow-env --unstable --reload index.ts

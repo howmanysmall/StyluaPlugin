@@ -1,0 +1,1 @@
+deno run --allow-net --allow-run --allow-write --allow-read --allow-env --unstable index.ts --config C:/Users/Studi/OneDrive/Documents/GitHub/StyLuaHost/Lua/stylua.toml
